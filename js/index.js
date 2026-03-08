@@ -198,6 +198,24 @@ function toggleHeart() {
   }
 }
 
+// ── Filter trending cards & artist cards ──
+function filterCards(filter) {
+  const lower = filter.toLowerCase();
+
+  // Filter trending song cards
+  document.querySelectorAll('#trending-scroll .song-card').forEach(card => {
+    const title = card.querySelector('p.font-bold')?.textContent.toLowerCase() || '';
+    const artist = card.querySelector('p.text-xs')?.textContent.toLowerCase() || '';
+    card.style.display = (title.includes(lower) || artist.includes(lower)) ? '' : 'none';
+  });
+
+  // Filter artist cards
+  document.querySelectorAll('#artists-scroll .artist-card').forEach(card => {
+    const name = card.querySelector('p.font-bold')?.textContent.toLowerCase() || '';
+    card.style.display = name.includes(lower) ? '' : 'none';
+  });
+}
+
 // ── Search filter ──
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -205,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('search-input').addEventListener('input', e => {
     renderSongTable(e.target.value);
+    filterCards(e.target.value);
   });
 
   // Horizontal scroll with mousewheel for trending and artists
