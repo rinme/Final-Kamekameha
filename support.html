@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support – SoundWave</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body class="dark:bg-[#121212] bg-gray-100 dark:text-white text-gray-900 min-h-screen flex flex-col">
+
+  <!-- ─── Theme Toggle (top right) ─── -->
+  <div class="fixed top-4 right-4 z-50">
+    <button onclick="toggleTheme()"
+      class="dark:bg-[#282828] bg-white border dark:border-gray-700 border-gray-300 rounded-full w-10 h-10 flex items-center justify-center hover:scale-110 shadow-md"
+      title="Toggle theme">
+      <span id="theme-icon">☀️</span>
+    </button>
+  </div>
+
+  <!-- ─── Main Content ─── -->
+  <main class="flex-1 flex flex-col items-center px-4 py-12">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2 mb-8 group">
+      <span class="text-4xl group-hover:scale-110 inline-block transition-transform">🎵</span>
+      <span class="text-2xl font-bold text-brand">SoundWave</span>
+    </a>
+
+    <!-- Hero / Search -->
+    <div class="w-full max-w-2xl text-center mb-10">
+      <h1 class="text-3xl font-bold mb-4">How can we help?</h1>
+      <div class="relative">
+        <input type="text" placeholder="Search for help..." aria-label="Search for help topics"
+          class="sw-input w-full px-5 py-3 pl-12 rounded-full border dark:border-gray-600 border-gray-300
+            dark:bg-[#3e3e3e] bg-gray-50 dark:placeholder-gray-500 placeholder-gray-400
+            text-sm focus:outline-none focus:border-white dark:focus:border-white focus:border-brand transition-colors" />
+        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+      </div>
+    </div>
+
+    <!-- Support Category Cards (2×2) -->
+    <div class="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+
+      <div class="dark:bg-[#242424] bg-white rounded-2xl shadow-2xl p-6 hover:scale-[1.02] transition-transform cursor-pointer">
+        <span class="text-3xl mb-3 block">🎵</span>
+        <h2 class="text-lg font-bold mb-1">Account</h2>
+        <p class="text-sm dark:text-gray-400 text-gray-500">Manage your account settings, password, and profile</p>
+      </div>
+
+      <div class="dark:bg-[#242424] bg-white rounded-2xl shadow-2xl p-6 hover:scale-[1.02] transition-transform cursor-pointer">
+        <span class="text-3xl mb-3 block">💳</span>
+        <h2 class="text-lg font-bold mb-1">Payment</h2>
+        <p class="text-sm dark:text-gray-400 text-gray-500">Billing, subscription plans, and payment methods</p>
+      </div>
+
+      <div class="dark:bg-[#242424] bg-white rounded-2xl shadow-2xl p-6 hover:scale-[1.02] transition-transform cursor-pointer">
+        <span class="text-3xl mb-3 block">🎧</span>
+        <h2 class="text-lg font-bold mb-1">Listening</h2>
+        <p class="text-sm dark:text-gray-400 text-gray-500">Playback issues, audio quality, and devices</p>
+      </div>
+
+      <div class="dark:bg-[#242424] bg-white rounded-2xl shadow-2xl p-6 hover:scale-[1.02] transition-transform cursor-pointer">
+        <span class="text-3xl mb-3 block">📱</span>
+        <h2 class="text-lg font-bold mb-1">App</h2>
+        <p class="text-sm dark:text-gray-400 text-gray-500">Installation, updates, and compatibility</p>
+      </div>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="w-full max-w-2xl mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+
+      <div class="dark:bg-[#242424] bg-white rounded-2xl shadow-2xl divide-y dark:divide-gray-700 divide-gray-200">
+
+        <!-- FAQ 1 -->
+        <div class="p-5">
+          <button onclick="toggleFaq('faq1')" aria-expanded="false" class="w-full flex items-center justify-between text-left font-semibold text-sm hover:text-brand transition-colors">
+            How do I reset my password?
+            <span id="faq1-arrow" class="text-lg ml-2">▸</span>
+          </button>
+          <div id="faq1" class="hidden mt-3 text-sm dark:text-gray-400 text-gray-500">
+            Go to the login page and click "Forgot your password?" — we'll send a reset link to the email associated with your account.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="p-5">
+          <button onclick="toggleFaq('faq2')" aria-expanded="false" class="w-full flex items-center justify-between text-left font-semibold text-sm hover:text-brand transition-colors">
+            How do I cancel my subscription?
+            <span id="faq2-arrow" class="text-lg ml-2">▸</span>
+          </button>
+          <div id="faq2" class="hidden mt-3 text-sm dark:text-gray-400 text-gray-500">
+            Navigate to your Account settings, select "Subscription," and click "Cancel Plan." You'll continue to have access until the end of your billing period.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="p-5">
+          <button onclick="toggleFaq('faq3')" aria-expanded="false" class="w-full flex items-center justify-between text-left font-semibold text-sm hover:text-brand transition-colors">
+            Why is a song not available?
+            <span id="faq3-arrow" class="text-lg ml-2">▸</span>
+          </button>
+          <div id="faq3" class="hidden mt-3 text-sm dark:text-gray-400 text-gray-500">
+            Song availability can vary by region due to licensing agreements. If a track is greyed out, it may not be available in your country at this time.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="p-5">
+          <button onclick="toggleFaq('faq4')" aria-expanded="false" class="w-full flex items-center justify-between text-left font-semibold text-sm hover:text-brand transition-colors">
+            How do I download music for offline?
+            <span id="faq4-arrow" class="text-lg ml-2">▸</span>
+          </button>
+          <div id="faq4" class="hidden mt-3 text-sm dark:text-gray-400 text-gray-500">
+            With a Premium subscription, tap the download icon on any playlist, album, or podcast to save it for offline listening.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="p-5">
+          <button onclick="toggleFaq('faq5')" aria-expanded="false" class="w-full flex items-center justify-between text-left font-semibold text-sm hover:text-brand transition-colors">
+            How do I contact support?
+            <span id="faq5-arrow" class="text-lg ml-2">▸</span>
+          </button>
+          <div id="faq5" class="hidden mt-3 text-sm dark:text-gray-400 text-gray-500">
+            You can reach our support team by emailing support@soundwave.com or by using the contact section at the bottom of this page.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="w-full max-w-2xl dark:bg-[#242424] bg-white rounded-2xl shadow-2xl px-8 py-10 text-center mb-8">
+      <h2 class="text-xl font-bold mb-2">Still need help?</h2>
+      <p class="text-sm dark:text-gray-400 text-gray-500">
+        Contact us at
+        <a href="mailto:support@soundwave.com" class="text-brand font-semibold hover:underline">support@soundwave.com</a>
+      </p>
+    </div>
+
+    <!-- Back to Home -->
+    <a href="index.html" class="text-sm dark:text-gray-400 text-gray-500 underline hover:text-brand transition-colors">
+      ← Back to Home
+    </a>
+
+  </main>
+
+  <!-- ─── JavaScript ─── -->
+  <script src="js/support.js"></script>
+</body>
+</html>
